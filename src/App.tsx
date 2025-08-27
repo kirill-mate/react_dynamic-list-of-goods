@@ -12,7 +12,7 @@ export const App: React.FC = () => {
     setErrorMessage('');
     request()
       .then(setGoods)
-      .catch(() => setErrorMessage('Failed to load goods.'));
+      .catch(error => setErrorMessage(error.message));
   }
 
   return (
