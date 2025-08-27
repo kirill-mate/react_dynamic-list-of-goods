@@ -9,9 +9,10 @@ export const App: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   function handleRequest(request: () => Promise<Good[]>) {
+    setErrorMessage('');
     request()
       .then(setGoods)
-      .catch(error => setErrorMessage(error.message));
+      .catch(() => setErrorMessage('Failed to load goods.'));
   }
 
   return (
